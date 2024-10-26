@@ -1,8 +1,8 @@
 // ignore: file_names
 
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/ui/login/change_password_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/ui/login/change_password_screen.dart';
 
 import '../../constants/size_config.dart';
 import '../../constants/widget_utils.dart';
@@ -54,8 +54,13 @@ class _ForgotPasswordScreen extends State<ForgotPasswordScreen> {
                       child: Container(),
                       flex: 1,
                     ),
-                    getCustomText("Forgot Password", fontBlack, 1, TextAlign.center,
-                        FontWeight.w800, getLoginTitleFontSize()),
+                    getCustomText(
+                        "Forgot Password",
+                        fontBlack,
+                        1,
+                        TextAlign.center,
+                        FontWeight.w800,
+                        getLoginTitleFontSize()),
                     Expanded(
                       child: Container(),
                       flex: 1,
@@ -70,18 +75,11 @@ class _ForgotPasswordScreen extends State<ForgotPasswordScreen> {
                     FontWeight.w400,
                     getEdtTextSize()),
                 getSpace(appBarPadding),
-                getLoginTextField(
-                    emailSignInController, "Email", "email.svg"),
+                getLoginTextField(emailSignInController, "Email", "email.svg"),
                 getSpace(appBarPadding),
-                getButton(
-                    primaryColor,
-                    true,
-                    "Submit",
-                    Colors.white,
-                    () {
-                      Constant.sendToScreen(const ChangePasswordScreen(),context);
-                    },
-                    FontWeight.w600,
+                getButton(primaryColor, true, "Submit", Colors.white, () {
+                  Constant.sendToScreen(const ChangePasswordScreen(), context);
+                }, FontWeight.w600,
                     EdgeInsets.symmetric(vertical: appBarPadding))
               ],
             ),
@@ -98,10 +96,8 @@ class _ForgotPasswordScreen extends State<ForgotPasswordScreen> {
     try {
       emailSignInController.dispose();
       focusNode.dispose();
-    // ignore: empty_catches
-    } catch (e) {
-    }
-
+      // ignore: empty_catches
+    } catch (e) {}
 
     super.dispose();
   }

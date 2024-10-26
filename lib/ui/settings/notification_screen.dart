@@ -1,10 +1,9 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/size_config.dart';
-
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/size_config.dart';
 
 import '../../constants/widget_utils.dart';
 import '../../constants/color_data.dart';
@@ -39,7 +38,7 @@ class _NotificationScreen extends State<NotificationScreen> {
     double appBarPadding = getAppBarPadding();
 
     double cellHeight = Constant.getPercentSize(screenWidth, 25);
-    double iconMainSize = Constant.getPercentSize(cellHeight,39);
+    double iconMainSize = Constant.getPercentSize(cellHeight, 39);
 
     return WillPopScope(
         child: Scaffold(
@@ -118,7 +117,7 @@ class _NotificationScreen extends State<NotificationScreen> {
                                           ),
                                         ),
                                         getHorSpace(Constant.getPercentSize(
-                                            screenWidth,3)),
+                                            screenWidth, 3)),
                                         Expanded(
                                           child: Column(
                                             mainAxisAlignment:
@@ -146,10 +145,13 @@ class _NotificationScreen extends State<NotificationScreen> {
                                                       TextAlign.start,
                                                       FontWeight.w400,
                                                       Constant.getPercentSize(
-                                                          cellHeight,13.5))
+                                                          cellHeight, 13.5))
                                                 ],
                                               ),
-                                              Expanded(child: Container(),flex: 1,),
+                                              Expanded(
+                                                child: Container(),
+                                                flex: 1,
+                                              ),
                                               // getSpace(Constant.getPercentSize(
                                               //     cellHeight, 7)),
                                               getCustomText(
@@ -159,7 +161,7 @@ class _NotificationScreen extends State<NotificationScreen> {
                                                   TextAlign.start,
                                                   FontWeight.w400,
                                                   Constant.getPercentSize(
-                                                      cellHeight,14))
+                                                      cellHeight, 14))
                                             ],
                                           ),
                                           flex: 1,

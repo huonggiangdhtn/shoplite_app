@@ -1,12 +1,12 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/models/model_my_order.dart';
-import 'package:shopping/ui/home/home_screen.dart';
-import 'package:shopping/ui/items/track_order_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/models/model_my_order.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
+import 'package:shoplite/ui/items/track_order_screen.dart';
 
 import '../../constants/widget_utils.dart';
 import '../../constants/color_data.dart';
@@ -61,7 +61,7 @@ class _MyOrderScreen extends State<MyOrderScreen> {
                         1,
                         TextAlign.start,
                         FontWeight.w600,
-                        Constant.getPercentSize(screenHeight,2)),
+                        Constant.getPercentSize(screenHeight, 2)),
                   ),
                 ),
                 Expanded(
@@ -87,7 +87,8 @@ class _MyOrderScreen extends State<MyOrderScreen> {
 
                               return InkWell(
                                 onTap: () {
-                                  Constant.sendToScreen(const TrackOrderScreen(), context);
+                                  Constant.sendToScreen(
+                                      const TrackOrderScreen(), context);
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(
@@ -111,14 +112,15 @@ class _MyOrderScreen extends State<MyOrderScreen> {
                                               cornerSmoothing: 0.5))),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       ClipRRect(
                                         child: Image.asset(
                                           Constant.assetImagePath +
                                               modelCart.image!,
                                           width: Constant.getPercentSize(
-                                              screenWidth,15.5),
+                                              screenWidth, 15.5),
                                           fit: BoxFit.cover,
                                           height: double.infinity,
                                         ),
@@ -139,7 +141,7 @@ class _MyOrderScreen extends State<MyOrderScreen> {
                                                 TextAlign.start,
                                                 FontWeight.bold,
                                                 Constant.getPercentSize(
-                                                    cellHeight,15)),
+                                                    cellHeight, 15)),
                                             getSpace(Constant.getPercentSize(
                                                 cellHeight, 7)),
                                             getCustomText(
@@ -149,7 +151,7 @@ class _MyOrderScreen extends State<MyOrderScreen> {
                                                 TextAlign.start,
                                                 FontWeight.w400,
                                                 Constant.getPercentSize(
-                                                    cellHeight,14)),
+                                                    cellHeight, 14)),
                                             const Expanded(
                                               child: SizedBox(),
                                               flex: 1,

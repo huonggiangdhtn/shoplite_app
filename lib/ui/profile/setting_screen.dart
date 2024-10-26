@@ -1,11 +1,11 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/ui/profile/card_list_screen.dart';
-import 'package:shopping/ui/profile/my_order_screen.dart';
-import 'package:shopping/ui/settings/notification_screen.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/ui/profile/card_list_screen.dart';
+import 'package:shoplite/ui/profile/my_order_screen.dart';
+import 'package:shoplite/ui/settings/notification_screen.dart';
 
 import '../../../constants/constant.dart';
 import '../../../constants/widget_utils.dart';
@@ -43,9 +43,8 @@ class _SettingScreen extends State<SettingScreen> {
             children: [
               getDefaultHeader(context, "Setting", () {
                 backClick();
-
-              }, (value) {
-              }, withFilter: false, isShowBack: true, isShowSearch: false),
+              }, (value) {},
+                  withFilter: false, isShowBack: true, isShowSearch: false),
               getSpace(appBarPadding),
               Expanded(
                 child: SingleChildScrollView(
@@ -69,8 +68,10 @@ class _SettingScreen extends State<SettingScreen> {
                     child: Column(
                       children: [
                         getSpace(appBarPadding),
-                        getSettingRow("notification_icon.svg", "Notifications", () {
-                          Constant.sendToScreen(const NotificationScreen(), context);
+                        getSettingRow("notification_icon.svg", "Notifications",
+                            () {
+                          Constant.sendToScreen(
+                              const NotificationScreen(), context);
                         }),
                         getSeparatorWidget(),
                         getSettingRow("Question.svg", "Help & Support", () {
@@ -85,7 +86,8 @@ class _SettingScreen extends State<SettingScreen> {
                         // }),
                         // getSeparatorWidget(),
                         getSettingRow("security.svg", "Security", () {
-                          Constant.sendToScreen(const CardListScreen(), context);
+                          Constant.sendToScreen(
+                              const CardListScreen(), context);
                         }),
                         getSeparatorWidget(),
                         getSettingRow(

@@ -1,9 +1,8 @@
 // ignore: file_names
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/widget_utils.dart';
-
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/widget_utils.dart';
 
 import '../models/model_review_slider.dart';
 import 'size_config.dart';
@@ -12,16 +11,17 @@ import 'color_data.dart';
 typedef OnChange = void Function(int index);
 
 class ReviewSlider extends StatefulWidget {
-    const ReviewSlider(
+  const ReviewSlider(
       {Key? key,
-        // Key? key,
+      // Key? key,
       @required this.onChange,
       this.initialValue,
       this.options = const [],
       this.optionStyle,
       this.width,
       this.isCash,
-      this.circleDiameter = 30}) : super(key: key);
+      this.circleDiameter = 30})
+      : super(key: key);
 
   /// The onChange callback calls every time when a pointer have changed
   /// the value of the slider and is no longer in contact with the screen.
@@ -55,7 +55,7 @@ class _ReviewSliderState extends State<ReviewSlider>
     super.dispose();
   }
 
-  double initValue=0;
+  double initValue = 0;
 
   @override
   void initState() {
@@ -99,8 +99,9 @@ class _ReviewSliderState extends State<ReviewSlider>
 const double paddingSize = 10;
 
 class MeasureLine extends StatelessWidget {
-   const MeasureLine(
-      {Key? key, this.handleTap,
+  const MeasureLine(
+      {Key? key,
+      this.handleTap,
       this.animationValue,
       this.states,
       this.width,
@@ -109,7 +110,8 @@ class MeasureLine extends StatelessWidget {
       this.options,
       this.oValue,
       this.optionStyle,
-      this.circleDiameter}) : super(key: key);
+      this.circleDiameter})
+      : super(key: key);
 
   final double? animationValue;
   final Function? handleTap;
@@ -152,7 +154,8 @@ class MeasureLine extends StatelessWidget {
                     color: backgroundColor,
                     height: size,
                     width: size,
-                    child: getSvgImage(text.image ?? "", size, color: greyFont)),
+                    child:
+                        getSvgImage(text.image ?? "", size, color: greyFont)),
             SizedBox(
               height: Constant.getPercentSize(circleDiameter!, 15),
             ),

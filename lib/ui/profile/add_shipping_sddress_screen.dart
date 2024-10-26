@@ -1,13 +1,12 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/size_config.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/size_config.dart';
 
 import '../../constants/select_state.dart';
 import '../../constants/widget_utils.dart';
 import '../../constants/color_data.dart';
-
 
 class AddShippingAddressScreen extends StatefulWidget {
   const AddShippingAddressScreen({Key? key}) : super(key: key);
@@ -23,20 +22,21 @@ class _AddShippingAddressScreen extends State<AddShippingAddressScreen> {
     Constant.backToFinish(context);
   }
 
-  TextEditingController txtControllerName = TextEditingController(text: "Jennie");
-  TextEditingController txtPinCode= TextEditingController(text: "83475");
-  TextEditingController txtControllerAddress = TextEditingController(text: "2715 Ash Dr.San Jose, South Dakota 83475");
+  TextEditingController txtControllerName =
+      TextEditingController(text: "Jennie");
+  TextEditingController txtPinCode = TextEditingController(text: "83475");
+  TextEditingController txtControllerAddress =
+      TextEditingController(text: "2715 Ash Dr.San Jose, South Dakota 83475");
 
-  String countryValue="";
-  String stateValue="";
-  String cityValue="";
+  String countryValue = "";
+  String stateValue = "";
+  String cityValue = "";
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     double screenHeight = SizeConfig.safeBlockVertical! * 100;
     double appBarPadding = getAppBarPadding();
-
 
     return WillPopScope(
         child: Scaffold(
@@ -74,28 +74,27 @@ class _AddShippingAddressScreen extends State<AddShippingAddressScreen> {
                             getDefaultTextFiledWithoutIconWidget(
                                 context, "Name", txtControllerName),
                             getDefaultTextFiledWithoutIconWidget(
-                                context, "Address", txtControllerAddress,minLines: true),
+                                context, "Address", txtControllerAddress,
+                                minLines: true),
                             getDefaultTextFiledWithoutIconWidget(
                                 context, "PinCode", txtPinCode),
                             SelectState(
-
                               // style: TextStyle(color: Colors.red),
                               onCountryChanged: (value) {
                                 setState(() {
                                   countryValue = value;
                                 });
                               },
-                              onStateChanged:(value) {
+                              onStateChanged: (value) {
                                 setState(() {
                                   stateValue = value;
                                 });
                               },
-                              onCityChanged:(value) {
+                              onCityChanged: (value) {
                                 setState(() {
                                   cityValue = value;
                                 });
                               },
-
                             ),
                           ],
                         ),
@@ -120,7 +119,7 @@ class _AddShippingAddressScreen extends State<AddShippingAddressScreen> {
 
   Widget getDefaultTextFiledWithoutIconWidget(BuildContext context, String s,
       TextEditingController textEditingController,
-      {bool withPrefix = false, String imgName = "", bool minLines =false}) {
+      {bool withPrefix = false, String imgName = "", bool minLines = false}) {
     double height = getEditHeight();
 
     double radius = Constant.getPercentSize(height, 20);
@@ -130,12 +129,12 @@ class _AddShippingAddressScreen extends State<AddShippingAddressScreen> {
     return StatefulBuilder(
       builder: (context, setState) {
         return Container(
-          height:(minLines)?(height*2.2):height,
+          height: (minLines) ? (height * 2.2) : height,
           margin: EdgeInsets.symmetric(
               vertical: Constant.getHeightPercentSize(1.2)),
           padding: EdgeInsets.symmetric(
               horizontal: Constant.getWidthPercentSize(2.5)),
-          alignment:(minLines)?Alignment.topLeft:Alignment.centerLeft,
+          alignment: (minLines) ? Alignment.topLeft : Alignment.centerLeft,
           decoration: ShapeDecoration(
             color: Colors.transparent,
             shape: SmoothRectangleBorder(
@@ -163,12 +162,12 @@ class _AddShippingAddressScreen extends State<AddShippingAddressScreen> {
               }
             },
             child: TextField(
-              maxLines: (minLines)?null:1,
+              maxLines: (minLines) ? null : 1,
               controller: textEditingController,
               autofocus: false,
               focusNode: myFocusNode,
               textAlign: TextAlign.start,
-              textAlignVertical:TextAlignVertical.center,
+              textAlignVertical: TextAlignVertical.center,
               style: TextStyle(
                   fontFamily: Constant.fontsFamily,
                   color: fontBlack,

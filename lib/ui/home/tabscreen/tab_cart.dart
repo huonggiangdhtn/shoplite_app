@@ -1,11 +1,11 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/models/model_cart.dart';
-import 'package:shopping/ui/checkout/checkout_address.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/models/model_cart.dart';
+import 'package:shoplite/ui/checkout/checkout_address.dart';
 
 import '../../../constants/constant.dart';
 import '../../../constants/widget_utils.dart';
@@ -105,8 +105,8 @@ class _TabCart extends State<TabCart> {
                                     TextAlign.start,
                                     FontWeight.w700,
                                     Constant.getPercentSize(cellHeight, 16)),
-                                getHorSpace(Constant.getPercentSize(
-                                    screenWidth, 0.5)),
+                                getHorSpace(
+                                    Constant.getPercentSize(screenWidth, 0.5)),
                                 Expanded(
                                   child: Container(),
                                   flex: 1,
@@ -139,8 +139,10 @@ class _TabCart extends State<TabCart> {
                           getSvgImage("Trash.svg", deleteIconSize),
                           Row(
                             children: [
-                              getSvgImage("Minus.svg", Constant.getPercentSize(cellHeight,2.5)),
-                              getHorSpace(Constant.getPercentSize(screenWidth,2.7)),
+                              getSvgImage("Minus.svg",
+                                  Constant.getPercentSize(cellHeight, 2.5)),
+                              getHorSpace(
+                                  Constant.getPercentSize(screenWidth, 2.7)),
                               getCustomText(
                                   "${modelCart.quantity}",
                                   fontBlack,
@@ -148,7 +150,8 @@ class _TabCart extends State<TabCart> {
                                   TextAlign.start,
                                   FontWeight.w700,
                                   Constant.getPercentSize(cellHeight, 15.5)),
-                              getHorSpace(Constant.getPercentSize(screenWidth,2.7)),
+                              getHorSpace(
+                                  Constant.getPercentSize(screenWidth, 2.7)),
                               getSvgImage("Plus.svg",
                                   Constant.getPercentSize(cellHeight, 11)),
                             ],
@@ -197,7 +200,7 @@ class _TabCart extends State<TabCart> {
                   right: appBarPadding,
                   top: appBarPadding),
               Colors.transparent),
-              // primaryColor.withOpacity(0.1)),
+          // primaryColor.withOpacity(0.1)),
           getButton(primaryColor, true, "Checkout", Colors.white, () {
             Constant.sendToScreen(const CheckoutAddress(), context);
           }, FontWeight.w700, EdgeInsets.all(appBarPadding))

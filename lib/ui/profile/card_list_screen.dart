@@ -1,10 +1,10 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/ui/home/home_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
 
 import '../../constants/widget_utils.dart';
 import '../../constants/color_data.dart';
@@ -21,9 +21,8 @@ class CardListScreen extends StatefulWidget {
 
 class _CardListScreen extends State<CardListScreen> {
   _requestPop() {
-    Constant.sendToScreen(HomeScreen(selectedTab: 3),context);
+    Constant.sendToScreen(HomeScreen(selectedTab: 3), context);
   }
-
 
   List<PaymentCardModel> paymentModelList = DataFile.getPaymentCardList();
   TextEditingController cardNumberController = TextEditingController();
@@ -31,7 +30,6 @@ class _CardListScreen extends State<CardListScreen> {
   TextEditingController expDateController = TextEditingController();
   TextEditingController cvvController = TextEditingController();
   bool isSaveCard = true;
-
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +91,8 @@ class _CardListScreen extends State<CardListScreen> {
                                 return InkWell(
                                   child: Container(
                                     margin: EdgeInsets.only(
-                                      left: appBarPadding,right: appBarPadding,
+                                        left: appBarPadding,
+                                        right: appBarPadding,
                                         bottom: appBarPadding / 2,
                                         top: appBarPadding / 2),
                                     padding: EdgeInsets.symmetric(
@@ -108,16 +107,16 @@ class _CardListScreen extends State<CardListScreen> {
                                         shape: SmoothRectangleBorder(
                                             borderRadius: SmoothBorderRadius(
                                                 cornerRadius:
-                                                Constant.getPercentSize(
-                                                    cellHeight, 10),
+                                                    Constant.getPercentSize(
+                                                        cellHeight, 10),
                                                 cornerSmoothing: 0.5))),
                                     height: cellHeight,
                                     width: double.infinity,
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: [
                                         getSvgImage(
                                             paymentModelList[index].image ?? "",
@@ -128,9 +127,9 @@ class _CardListScreen extends State<CardListScreen> {
                                         Expanded(
                                           child: Column(
                                             mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                                MainAxisAlignment.center,
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                                CrossAxisAlignment.start,
                                             children: [
                                               getCustomText(
                                                   paymentModelList[index].name!,
@@ -144,9 +143,9 @@ class _CardListScreen extends State<CardListScreen> {
                                                   cellHeight, 7)),
                                               Row(
                                                 mainAxisAlignment:
-                                                MainAxisAlignment.start,
+                                                    MainAxisAlignment.start,
                                                 crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                                    CrossAxisAlignment.start,
                                                 children: [
                                                   getCustomText(
                                                       "xxxx xxxx xxxx ",
@@ -174,7 +173,6 @@ class _CardListScreen extends State<CardListScreen> {
                                           ),
                                           flex: 1,
                                         ),
-
                                       ],
                                     ),
                                   ),
@@ -189,8 +187,7 @@ class _CardListScreen extends State<CardListScreen> {
                 Visibility(
                     visible: paymentModelList.isNotEmpty,
                     child: getButton(
-                        primaryColor, true, "Add New Card", Colors.white,
-                        () {
+                        primaryColor, true, "Add New Card", Colors.white, () {
                       addNewCardDialog();
                     }, FontWeight.w700, EdgeInsets.all(appBarPadding)))
               ],
@@ -226,8 +223,7 @@ class _CardListScreen extends State<CardListScreen> {
                   padding: EdgeInsets.symmetric(horizontal: margin),
                   child: ListView(
                     children: <Widget>[
-                      getSpace(Constant.getPercentSize(height,4)),
-
+                      getSpace(Constant.getPercentSize(height, 4)),
                       Center(
                         child: Container(
                           width: Constant.getWidthPercentSize(10),
@@ -235,7 +231,7 @@ class _CardListScreen extends State<CardListScreen> {
                           color: Colors.grey.shade500,
                         ),
                       ),
-                      getSpace(Constant.getPercentSize(height, 5  )),
+                      getSpace(Constant.getPercentSize(height, 5)),
                       Row(
                         children: [
                           Expanded(
@@ -315,7 +311,7 @@ class _CardListScreen extends State<CardListScreen> {
                                   child: Icon(
                                     Icons.check,
                                     size:
-                                    Constant.getPercentSize(cellHeight, 80),
+                                        Constant.getPercentSize(cellHeight, 80),
                                     color: (isSaveCard)
                                         ? Colors.white
                                         : Colors.transparent,
@@ -339,14 +335,14 @@ class _CardListScreen extends State<CardListScreen> {
                             true,
                             "Add",
                             Colors.white,
-                                () {},
+                            () {},
                             FontWeight.bold,
                             EdgeInsets.symmetric(vertical: margin),
                           )
-                        //     getButtonWidget(context, "Add", primaryColor, () {
-                        //   Navigator.of(context).pop();
-                        // }),
-                      ),
+                          //     getButtonWidget(context, "Add", primaryColor, () {
+                          //   Navigator.of(context).pop();
+                          // }),
+                          ),
                       getSpace(margin)
                     ],
                   ),
@@ -356,7 +352,6 @@ class _CardListScreen extends State<CardListScreen> {
           );
         });
   }
-
 
   Widget getSeparateDivider() {
     return Padding(

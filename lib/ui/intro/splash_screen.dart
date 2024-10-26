@@ -1,12 +1,14 @@
 // ignore: file_names
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/pref_data.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/widget_utils.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/ui/home/home_screen.dart';
+import 'package:shoplite/constants/apilist.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/pref_data.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/widget_utils.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
+import '../../repositories/sitesetting_repository.dart';
 import '../login/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,26 +21,39 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreen extends State<SplashScreen> {
+  final ProfileRepository _repository = ProfileRepository();
+  String? siteName;
+  String? logoUrl;
   @override
   void initState() {
     super.initState();
-    Timer(
-      const Duration(seconds: 2),
-      () {
-        PrefData.isLogIn().then((value) {
-          if (value) {
+    _loadDataAndNavigate();
+  }
 
-              Constant.sendToScreen(HomeScreen(), context);
+  Future<void> _loadDataAndNavigate() async {
+    // Gọi API để lấy site setting và lưu trữ
+    final settings = await _repository.loadSiteSetting();
+    siteName = settings['site_name'];
+    logoUrl = settings['logo_url'];
 
-          } else {
-            PrefData.setLogIn(true);
+    if (siteName != null && logoUrl != null) {
+      // Nếu đã có dữ liệu, hiển thị ngay thông tin đã lưu
+      setState(() {});
+    }
 
-              Constant.sendToScreen(const LoginScreen(), context);
+    await _repository.fetchAndSaveSiteSetting();
 
-          }
-        });
-      },
-    );
+    // Kiểm tra trạng thái đăng nhập
+
+    g_token = await PrefData.getToken();
+    bool isLoggedIn = await PrefData.isLogIn();
+    // Chuyển trang sau khi load xong site setting
+    if (isLoggedIn && g_token != '') {
+      Constant.sendToScreen(HomeScreen(), context);
+    } else {
+      // PrefData.setLogIn(true); // Nếu cần, đặt trạng thái đã đăng nhập
+      Constant.sendToScreen(const LoginScreen(), context);
+    }
   }
 
   @override
@@ -48,37 +63,43 @@ class _SplashScreen extends State<SplashScreen> {
 
     double iconSize = Constant.getPercentSize(screenHeight, 10);
 
-    return WillPopScope(
-        child: Scaffold(
-          backgroundColor: backgroundColor,
-          body: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding:
-                      EdgeInsets.all(Constant.getPercentSize(iconSize, 25)),
-                  child:getSvgImage("logo_img.svg", iconSize,color:fontBlack )
-                  // Image.asset(
-                  //   Constant.assetImagePath + "logo_img.png",
-                  //   width: iconSize,
-                  //   height: iconSize,
-                  //   fit: BoxFit.fill,
-                  //   color: fontBlack,
-                  // ),
-                ),
-                getCustomText("SHOPPING", fontBlack, 1, TextAlign.center,
-                    FontWeight.w900, Constant.getPercentSize(screenHeight, 5.5))
-              ],
-            ),
+    return PopScope(
+      onPopInvokedWithResult: (context, result) {
+        // Handle back navigation
+        Constant.backToFinish(context as BuildContext);
+      },
+      child: Scaffold(
+        backgroundColor: backgroundColor,
+        body: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(Constant.getPercentSize(iconSize, 25)),
+                child: logoUrl == null
+                    ? getSvgImage("logo_img.svg", iconSize, color: fontBlack)
+                    : Image.network(
+                        logoUrl!,
+                        width: iconSize,
+                        height: iconSize,
+                        fit: BoxFit.fill,
+                        color: fontBlack,
+                      ),
+              ),
+              getCustomText(
+                  siteName ?? "SHOPPING",
+                  fontBlack,
+                  1,
+                  TextAlign.center,
+                  FontWeight.w900,
+                  Constant.getPercentSize(screenHeight, 5.5)),
+            ],
           ),
         ),
-        onWillPop: () async {
-          Constant.backToFinish(context);
-          return false;
-        });
+      ),
+    );
   }
 }

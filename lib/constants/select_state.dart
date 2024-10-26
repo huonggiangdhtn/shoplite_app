@@ -5,10 +5,11 @@ import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-import 'package:country_state_city_picker/model/select_status_model.dart' as status;
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/widget_utils.dart';
-import 'package:shopping/constants/color_data.dart';
+import 'package:country_state_city_picker/model/select_status_model.dart'
+    as status;
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/widget_utils.dart';
+import 'package:shoplite/constants/color_data.dart';
 
 class SelectState extends StatefulWidget {
   final ValueChanged<String> onCountryChanged;
@@ -77,7 +78,6 @@ class _SelectStateState extends State<SelectState> {
       setState(() {
         var name = f.map((item) => item.name).toList();
         for (var statename in name) {
-
           _states.add(statename.toString());
         }
       });
@@ -102,7 +102,6 @@ class _SelectStateState extends State<SelectState> {
         setState(() {
           var citiesname = ci.map((item) => item.name).toList();
           for (var citynames in citiesname) {
-
             cities.add(citynames.toString());
           }
         });
@@ -147,12 +146,11 @@ class _SelectStateState extends State<SelectState> {
     double radius = Constant.getPercentSize(height, 20);
     double fontSize = Constant.getPercentSize(height, 30);
 
-    TextStyle style=TextStyle(
-      color: fontBlack,
-      fontSize: fontSize,
-      fontFamily: Constant.fontsFamily,
-      fontWeight: FontWeight.w500
-    );
+    TextStyle style = TextStyle(
+        color: fontBlack,
+        fontSize: fontSize,
+        fontFamily: Constant.fontsFamily,
+        fontWeight: FontWeight.w500);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -190,7 +188,7 @@ class _SelectStateState extends State<SelectState> {
                         children: [
                           Text(
                             dropDownStringItem,
-                            style:style,
+                            style: style,
                           )
                         ],
                       ),
@@ -203,7 +201,6 @@ class _SelectStateState extends State<SelectState> {
             ),
           ),
         ),
-
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: Constant.getHeightPercentSize(1.2)),
@@ -234,7 +231,7 @@ class _SelectStateState extends State<SelectState> {
                   items: _states.map((String dropDownStringItem) {
                     return DropdownMenuItem<String>(
                       value: dropDownStringItem,
-                      child: Text(dropDownStringItem, style:style),
+                      child: Text(dropDownStringItem, style: style),
                     );
                   }).toList(),
                   onChanged: (value) => _onSelectedState(value!),
@@ -244,7 +241,6 @@ class _SelectStateState extends State<SelectState> {
             ),
           ),
         ),
-
         Padding(
           padding: EdgeInsets.symmetric(
               vertical: Constant.getHeightPercentSize(1.2)),
@@ -266,8 +262,7 @@ class _SelectStateState extends State<SelectState> {
                 ),
               ),
               child: Center(
-                child:
-                DropdownButton<String>(
+                child: DropdownButton<String>(
                   dropdownColor: widget.dropdownColor,
                   isExpanded: true,
                   itemHeight: null,
@@ -286,9 +281,6 @@ class _SelectStateState extends State<SelectState> {
             ),
           ),
         ),
-
-
-
         const SizedBox(
           height: 10.0,
         ),

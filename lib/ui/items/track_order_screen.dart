@@ -1,9 +1,9 @@
 // ignore: file_names
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/widget_utils.dart';
-import 'package:shopping/ui/home/home_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/widget_utils.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
 
 import '../../constants/size_config.dart';
 import '../../constants/color_data.dart';
@@ -11,7 +11,7 @@ import '../../constants/color_data.dart';
 class TrackOrderScreen extends StatefulWidget {
   final Function? function;
 
-   const TrackOrderScreen({Key? key, this.function}) : super(key: key);
+  const TrackOrderScreen({Key? key, this.function}) : super(key: key);
 
   @override
   _TrackOrderScreen createState() {
@@ -76,8 +76,7 @@ class _TrackOrderScreen extends State<TrackOrderScreen> {
                               // decoration: getDecoration(radius),
 
                               margin: EdgeInsets.only(
-                                right:
-                                    Constant.getPercentSize(leftMargin, 70),
+                                right: Constant.getPercentSize(leftMargin, 70),
                               ),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(
@@ -178,7 +177,8 @@ class _TrackOrderScreen extends State<TrackOrderScreen> {
                       margin: EdgeInsets.all(leftMargin),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: leftMargin,vertical: leftMargin/2),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: leftMargin, vertical: leftMargin / 2),
                       child: getCustomTextWithoutMaxLine(
                         'Shipping Address',
                         fontBlack,
@@ -269,7 +269,6 @@ class _TrackOrderScreen extends State<TrackOrderScreen> {
               SizedBox(
                 width: size,
                 height: size,
-
                 child: isSelect
                     ? Icon(
                         Icons.check_circle_sharp,
@@ -324,13 +323,11 @@ class _TrackOrderScreen extends State<TrackOrderScreen> {
                             fontSize: Constant.getHeightPercentSize(2.2),
                             fontWeight: FontWeight.w600,
                             color: fontBlack)),
-
                     SizedBox(
                       height: Constant.getHeightPercentSize(1),
                     ),
                     getCustomText(desc, primaryColor, 2, TextAlign.start,
                         FontWeight.w400, Constant.getHeightPercentSize(2)),
-
                   ],
                 ),
               ),

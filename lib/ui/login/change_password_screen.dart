@@ -1,8 +1,8 @@
 // ignore: file_names
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/ui/intro/splash_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/ui/intro/splash_screen.dart';
 
 import '../../constants/size_config.dart';
 import '../../constants/widget_utils.dart';
@@ -112,18 +112,12 @@ class _ChangePasswordScreen extends State<ChangePasswordScreen> {
                       context: context,
                       builder: (BuildContext context) {
                         return ResetPasswordDialogBox(
-
                           func: () {
-
-                            Constant.sendToScreen(const SplashScreen(), context);
-
+                            Constant.sendToScreen(
+                                const SplashScreen(), context);
                           },
                         );
                       });
-
-
-
-
                 }, FontWeight.w600,
                     EdgeInsets.symmetric(vertical: appBarPadding))
               ],

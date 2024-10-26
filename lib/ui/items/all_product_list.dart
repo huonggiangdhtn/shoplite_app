@@ -1,13 +1,13 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/widget_utils.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/models/model_trending.dart';
-import 'package:shopping/ui/items/product_detail.dart';
-import 'package:shopping/ui/search/filter_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/widget_utils.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/models/model_trending.dart';
+import 'package:shoplite/ui/items/product_detail.dart';
+import 'package:shoplite/ui/search/filter_screen.dart';
 
 import '../../constants/data_file.dart';
 
@@ -44,11 +44,17 @@ class _AllProductList extends State<AllProductList> {
           backgroundColor: backgroundColor,
           body: Column(
             children: [
-              getDefaultHeader(context, "All Products", () {
-                Constant.backToFinish(context);
-              }, (value) {}, withFilter: true, filterFun: () {
-                Constant.sendToScreen(const FilterScreen(), context);
-              }),
+              getDefaultHeader(
+                  context,
+                  "All Products",
+                  () {
+                    Constant.backToFinish(context);
+                  },
+                  (value) {},
+                  withFilter: true,
+                  filterFun: () {
+                    Constant.sendToScreen(const FilterScreen(), context);
+                  }),
               Expanded(
                 child: GridView.count(
                   padding: EdgeInsets.all(marginPopular),
@@ -117,7 +123,7 @@ class _AllProductList extends State<AllProductList> {
                                       alignment: Alignment.topRight,
                                       child: getFavWidget(
                                           popularHeight,
-                                          index==0,
+                                          index == 0,
                                           EdgeInsets.all(
                                               Constant.getPercentSize(
                                                   popularWidth, 3))),
@@ -160,8 +166,7 @@ class _AllProductList extends State<AllProductList> {
                               ),
                               flex: 1,
                             ),
-                            getSpace(
-                                Constant.getPercentSize(popularHeight, 5)),
+                            getSpace(Constant.getPercentSize(popularHeight, 5)),
                             getCustomText(
                                 modelPopular.title ?? "",
                                 fontBlack,

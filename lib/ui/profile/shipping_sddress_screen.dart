@@ -1,11 +1,11 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/ui/home/home_screen.dart';
-import 'package:shopping/ui/profile/add_shipping_sddress_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
+import 'package:shoplite/ui/profile/add_shipping_sddress_screen.dart';
 
 import '../../constants/widget_utils.dart';
 import '../../constants/color_data.dart';
@@ -77,13 +77,14 @@ class _ShippingAddressScreen extends State<ShippingAddressScreen> {
                               "No Address Yet!",
                               "Add Your Address and lets get started.",
                               "Add Address", () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const AddShippingAddressScreen(),
-                            )).then((value){
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(
+                              builder: (context) =>
+                                  const AddShippingAddressScreen(),
+                            ))
+                                .then((value) {
                               addressList = DataFile.getAddressList();
-                              setState(() {
-
-                              });
+                              setState(() {});
                             });
                           }),
                         )
@@ -92,7 +93,6 @@ class _ShippingAddressScreen extends State<ShippingAddressScreen> {
                           height: double.infinity,
                           child: ListView.builder(
                             itemBuilder: (context1, index) {
-
                               return Container(
                                 height: cellHeight,
                                 width: double.infinity,
@@ -178,8 +178,9 @@ class _ShippingAddressScreen extends State<ShippingAddressScreen> {
                                                           ? 30
                                                           : 29,
                                                       width: double.infinity,
-                                                      padding: const EdgeInsets.only(
-                                                          left: 10),
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 10),
                                                     ),
                                                     (index ==
                                                             popUpMenuList
@@ -195,7 +196,6 @@ class _ShippingAddressScreen extends State<ShippingAddressScreen> {
                                                 ),
 
                                                 onTap: () async {
-
                                                   if (index == 1) {
                                                     Future.delayed(
                                                       Duration.zero,
@@ -212,7 +212,6 @@ class _ShippingAddressScreen extends State<ShippingAddressScreen> {
                                                             double radius = Constant
                                                                 .getPercentSize(
                                                                     height, 4);
-
 
                                                             return Dialog(
                                                               shape:
@@ -258,98 +257,102 @@ class _ShippingAddressScreen extends State<ShippingAddressScreen> {
                                                                   crossAxisAlignment:
                                                                       CrossAxisAlignment
                                                                           .center,
-                                                                  children: <
-                                                                      Widget>[
+                                                                  children: <Widget>[
                                                                     Expanded(
                                                                         child:
                                                                             Column(
-                                                                        mainAxisAlignment:
-                                                                              MainAxisAlignment.center,
-                                                                        crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
-                                                                        children: [
-                                                                            SizedBox(
-                                                                              height:
-                                                                                  Constant.getPercentSize(
-                                                                                height,
-                                                                                4,
-                                                                              ),
-                                                                            ),
-                                                                            getCustomTextWithoutMaxLine(
-                                                                              'Are you sure you want to delete\n this address?',
-                                                                              fontBlack,
-                                                                              TextAlign.center,
-                                                                              FontWeight.bold,
-                                                                              Constant.getPercentSize(height,
-                                                                                  10),
-                                                                            ),
-                                                                            SizedBox(
-                                                                              height:
-                                                                                  Constant.getPercentSize(
-                                                                                height,
-                                                                                14,
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding:
-                                                                                  EdgeInsets.symmetric(horizontal: Constant.getPercentSize(width, 5)),
-                                                                              child:
-                                                                                  Row(
-                                                                                children: [
-                                                                                  Expanded(
-                                                                                    child: InkWell(
-                                                                                        onTap: () {
-                                                                                          Constant.backToFinish(context);
-                                                                                        },
-                                                                                        child: Container(
-                                                                                          margin: EdgeInsets.only(right: Constant.getWidthPercentSize(3)),
-                                                                                          height: Constant.getHeightPercentSize(7),
-                                                                                          decoration: ShapeDecoration(
-                                                                                            color: Colors.transparent,
-                                                                                            shape: SmoothRectangleBorder(
-                                                                                              side: BorderSide(color: primaryColor, width: 2),
-                                                                                              borderRadius: SmoothBorderRadius(
-                                                                                                cornerRadius: Constant.getHeightPercentSize(1.8),
-                                                                                                cornerSmoothing: 0.8,
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                          child: Center(
-                                                                                            child: getCustomText("Cancel", primaryColor, 1, TextAlign.center, FontWeight.w600, Constant.getHeightPercentSize(2)),
-                                                                                          ),
-                                                                                        )),
-                                                                                  ),
-                                                                                  Expanded(
-                                                                                    child: InkWell(
-                                                                                      onTap: () {
-                                                                                        Constant.backToFinish(context);
-                                                                                        // Navigator.pushReplacement(
-                                                                                        //     context,
-                                                                                        //     MaterialPageRoute(
-                                                                                        //       builder: (context) => TrackOrderPage(),
-                                                                                        //     ));
-                                                                                      },
-                                                                                      child: Container(
-                                                                                        margin: EdgeInsets.only(left: Constant.getWidthPercentSize(3)),
-                                                                                        height: Constant.getHeightPercentSize(7),
-                                                                                        decoration: ShapeDecoration(
-                                                                                          color: primaryColor,
-                                                                                          shape: SmoothRectangleBorder(
-                                                                                            borderRadius: SmoothBorderRadius(
-                                                                                              cornerRadius: Constant.getHeightPercentSize(1.8),
-                                                                                              cornerSmoothing: 0.8,
-                                                                                            ),
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        SizedBox(
+                                                                          height:
+                                                                              Constant.getPercentSize(
+                                                                            height,
+                                                                            4,
+                                                                          ),
+                                                                        ),
+                                                                        getCustomTextWithoutMaxLine(
+                                                                          'Are you sure you want to delete\n this address?',
+                                                                          fontBlack,
+                                                                          TextAlign
+                                                                              .center,
+                                                                          FontWeight
+                                                                              .bold,
+                                                                          Constant.getPercentSize(
+                                                                              height,
+                                                                              10),
+                                                                        ),
+                                                                        SizedBox(
+                                                                          height:
+                                                                              Constant.getPercentSize(
+                                                                            height,
+                                                                            14,
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding:
+                                                                              EdgeInsets.symmetric(horizontal: Constant.getPercentSize(width, 5)),
+                                                                          child:
+                                                                              Row(
+                                                                            children: [
+                                                                              Expanded(
+                                                                                child: InkWell(
+                                                                                    onTap: () {
+                                                                                      Constant.backToFinish(context);
+                                                                                    },
+                                                                                    child: Container(
+                                                                                      margin: EdgeInsets.only(right: Constant.getWidthPercentSize(3)),
+                                                                                      height: Constant.getHeightPercentSize(7),
+                                                                                      decoration: ShapeDecoration(
+                                                                                        color: Colors.transparent,
+                                                                                        shape: SmoothRectangleBorder(
+                                                                                          side: BorderSide(color: primaryColor, width: 2),
+                                                                                          borderRadius: SmoothBorderRadius(
+                                                                                            cornerRadius: Constant.getHeightPercentSize(1.8),
+                                                                                            cornerSmoothing: 0.8,
                                                                                           ),
                                                                                         ),
-                                                                                        child: Center(child: getCustomText("Delete", Colors.white, 1, TextAlign.center, FontWeight.w600, Constant.getHeightPercentSize(2))),
+                                                                                      ),
+                                                                                      child: Center(
+                                                                                        child: getCustomText("Cancel", primaryColor, 1, TextAlign.center, FontWeight.w600, Constant.getHeightPercentSize(2)),
+                                                                                      ),
+                                                                                    )),
+                                                                              ),
+                                                                              Expanded(
+                                                                                child: InkWell(
+                                                                                  onTap: () {
+                                                                                    Constant.backToFinish(context);
+                                                                                    // Navigator.pushReplacement(
+                                                                                    //     context,
+                                                                                    //     MaterialPageRoute(
+                                                                                    //       builder: (context) => TrackOrderPage(),
+                                                                                    //     ));
+                                                                                  },
+                                                                                  child: Container(
+                                                                                    margin: EdgeInsets.only(left: Constant.getWidthPercentSize(3)),
+                                                                                    height: Constant.getHeightPercentSize(7),
+                                                                                    decoration: ShapeDecoration(
+                                                                                      color: primaryColor,
+                                                                                      shape: SmoothRectangleBorder(
+                                                                                        borderRadius: SmoothBorderRadius(
+                                                                                          cornerRadius: Constant.getHeightPercentSize(1.8),
+                                                                                          cornerSmoothing: 0.8,
+                                                                                        ),
                                                                                       ),
                                                                                     ),
-                                                                                  )
-                                                                                ],
-                                                                              ),
-                                                                            )
-                                                                        ],
-                                                                      )),
+                                                                                    child: Center(child: getCustomText("Delete", Colors.white, 1, TextAlign.center, FontWeight.w600, Constant.getHeightPercentSize(2))),
+                                                                                  ),
+                                                                                ),
+                                                                              )
+                                                                            ],
+                                                                          ),
+                                                                        )
+                                                                      ],
+                                                                    )),
                                                                   ],
                                                                 ),
                                                               ),

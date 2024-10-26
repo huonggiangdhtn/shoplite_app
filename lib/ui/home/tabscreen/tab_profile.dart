@@ -1,14 +1,14 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/ui/home/home_screen.dart';
-import 'package:shopping/ui/profile/card_list_screen.dart';
-import 'package:shopping/ui/profile/my_order_screen.dart';
-import 'package:shopping/ui/profile/profile_screen.dart';
-import 'package:shopping/ui/profile/setting_screen.dart';
-import 'package:shopping/ui/profile/shipping_sddress_screen.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
+import 'package:shoplite/ui/profile/card_list_screen.dart';
+import 'package:shoplite/ui/profile/my_order_screen.dart';
+import 'package:shoplite/ui/profile/profile_screen.dart';
+import 'package:shoplite/ui/profile/setting_screen.dart';
+import 'package:shoplite/ui/profile/shipping_sddress_screen.dart';
 
 import '../../../constants/constant.dart';
 import '../../../constants/pref_data.dart';
@@ -67,9 +67,8 @@ class _TabProfile extends State<TabProfile> {
           Expanded(
             child: Container(
               margin: EdgeInsets.all(getAppBarPadding()),
-              padding: EdgeInsets.only(
-                  left: appBarPadding,
-                  right: appBarPadding),
+              padding:
+                  EdgeInsets.only(left: appBarPadding, right: appBarPadding),
               decoration: ShapeDecoration(
                   color: cardColor,
                   shape: SmoothRectangleBorder(
@@ -89,39 +88,34 @@ class _TabProfile extends State<TabProfile> {
                 shrinkWrap: true,
                 children: [
                   getSpace(appBarPadding),
-                  getSettingRow("User.svg","My Profile",(){
+                  getSettingRow("User.svg", "My Profile", () {
                     Constant.sendToScreen(const ProfileScreen(), context);
                   }),
                   getSeparatorWidget(),
-                  getSettingRow("Bag.svg","My Orders",(){
+                  getSettingRow("Bag.svg", "My Orders", () {
                     Constant.sendToScreen(const MyOrderScreen(), context);
-
                   }),
                   getSeparatorWidget(),
-                  getSettingRow("heart.svg","My Favourites",(){
+                  getSettingRow("heart.svg", "My Favourites", () {
                     Constant.sendToScreen(HomeScreen(selectedTab: 1), context);
-
                   }),
                   getSeparatorWidget(),
-                  getSettingRow("shipping_location.svg","Shipping Address",(){
-                    Constant.sendToScreen(const ShippingAddressScreen(), context);
-
+                  getSettingRow("shipping_location.svg", "Shipping Address",
+                      () {
+                    Constant.sendToScreen(
+                        const ShippingAddressScreen(), context);
                   }),
                   getSeparatorWidget(),
-                  getSettingRow("Card.svg","My Cards",(){
+                  getSettingRow("Card.svg", "My Cards", () {
                     Constant.sendToScreen(const CardListScreen(), context);
-
                   }),
                   getSeparatorWidget(),
-                  getSettingRow("Setting.svg","Settings",(){
+                  getSettingRow("Setting.svg", "Settings", () {
                     Constant.sendToScreen(const SettingScreen(), context);
-
                   }),
                   getSpace(appBarPadding),
-
                 ],
               ),
-              
             ),
             flex: 1,
           ),
@@ -143,5 +137,4 @@ class _TabProfile extends State<TabProfile> {
       ),
     );
   }
-
 }

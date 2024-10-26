@@ -3,12 +3,12 @@ import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/widget_utils.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/ui/home/home_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/widget_utils.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
-name: shopping
-description: A new Flutter project.
+name: shoplite
+description: A new Flutter project for shoplite.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -44,7 +44,10 @@ dependencies:
   dotted_line: ^3.2.2
   country_state_city_picker: ^1.2.8
   syncfusion_flutter_sliders: ^27.1.53
-
+  flutter_riverpod: ^2.0.0
+  http: ^1.2.2 
+  image_picker: ^1.1.2
+ 
 
 
 

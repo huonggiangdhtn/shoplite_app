@@ -1,12 +1,12 @@
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/review_slider.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/widget_utils.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/ui/checkout/checkout_payment.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/review_slider.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/widget_utils.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/ui/checkout/checkout_payment.dart';
 import '../../models/address_model.dart';
 import '../../models/payment_card_model.dart';
 import '../profile/add_shipping_sddress_screen.dart';
@@ -34,7 +34,6 @@ class _CheckoutAddress extends State<CheckoutAddress> {
     setState(() {});
   }
 
-
   void _requestPop() {
     Constant.backToFinish(context);
   }
@@ -57,9 +56,7 @@ class _CheckoutAddress extends State<CheckoutAddress> {
             children: [
               getDefaultHeader(context, "Checkout", () {
                 _requestPop();
-
-              }, (value) {
-              }, isShowSearch: false),
+              }, (value) {}, isShowSearch: false),
               getSpace(Constant.getPercentSize(screenHeight, 1.5)),
               ReviewSlider(
                   optionStyle: TextStyle(
@@ -76,8 +73,7 @@ class _CheckoutAddress extends State<CheckoutAddress> {
                   options: Constant.getOption()),
               Expanded(
                 child: Container(
-                  padding:
-                      EdgeInsets.only(left: leftMargin, right: leftMargin),
+                  padding: EdgeInsets.only(left: leftMargin, right: leftMargin),
                   child: ListView(
                     children: [
                       ListView.builder(
@@ -105,10 +101,8 @@ class _CheckoutAddress extends State<CheckoutAddress> {
                                 height: cellHeight,
                                 width: double.infinity,
                                 child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.start,
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Icon(
                                       (index == _selectedAddress)
@@ -137,8 +131,7 @@ class _CheckoutAddress extends State<CheckoutAddress> {
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Image.asset(
-                                        Constant.assetImagePath +
-                                            "edit.png",
+                                        Constant.assetImagePath + "edit.png",
                                         height: Constant.getPercentSize(
                                             cellHeight, 25),
                                       ),
@@ -157,21 +150,21 @@ class _CheckoutAddress extends State<CheckoutAddress> {
                         children: [
                           InkWell(
                             onTap: () {
-
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const AddShippingAddressScreen(),
-                              )).then((value){
-                                setState(() {
-
-                                });
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(
+                                builder: (context) =>
+                                    const AddShippingAddressScreen(),
+                              ))
+                                  .then((value) {
+                                setState(() {});
                               });
                             },
                             child: Container(
                               height: edtHeight,
                               margin: EdgeInsets.only(top: appBarPadding),
                               padding: EdgeInsets.symmetric(
-                                  horizontal: Constant.getPercentSize(
-                                      screenWidth, 10)),
+                                  horizontal:
+                                      Constant.getPercentSize(screenWidth, 10)),
                               decoration: getButtonShapeDecoration(
                                   primaryColor.withOpacity(0.1)),
                               child: Row(
@@ -180,8 +173,8 @@ class _CheckoutAddress extends State<CheckoutAddress> {
                                       color: primaryColor,
                                       size: Constant.getPercentSize(
                                           edtHeight, 30)),
-                                  getHorSpace(Constant.getPercentSize(
-                                      screenWidth, 2)),
+                                  getHorSpace(
+                                      Constant.getPercentSize(screenWidth, 2)),
                                   getCustomText(
                                       "Add New Address",
                                       primaryColor,
@@ -202,9 +195,7 @@ class _CheckoutAddress extends State<CheckoutAddress> {
               ),
               getButton(primaryColor, true, "Next", Colors.white, () {
                 Constant.sendToScreen(const CheckoutPayment(), context);
-
-              },
-                  FontWeight.w700, EdgeInsets.all(appBarPadding))
+              }, FontWeight.w700, EdgeInsets.all(appBarPadding))
             ],
           ),
         ),

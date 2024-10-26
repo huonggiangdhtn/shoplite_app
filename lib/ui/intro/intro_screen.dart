@@ -1,14 +1,13 @@
 // ignore: file_names
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/widget_utils.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/models/model_intro.dart';
-import 'package:shopping/ui/home/home_screen.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/widget_utils.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/models/model_intro.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
 import '../../constants/constant.dart';
-
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);

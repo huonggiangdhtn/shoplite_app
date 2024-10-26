@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/models/model_review_slider.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/models/model_review_slider.dart';
 
 class Constant {
   static String assetImagePath = "assets/images/";

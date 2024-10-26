@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/ui/intro/splash_screen.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/ui/intro/splash_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

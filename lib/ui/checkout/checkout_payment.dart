@@ -1,7 +1,7 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/ui/checkout/checkout_confirm.dart';
+import 'package:shoplite/ui/checkout/checkout_confirm.dart';
 
 import '../../constants/constant.dart';
 import '../../constants/data_file.dart';
@@ -53,9 +53,7 @@ class _CheckoutPayment extends State<CheckoutPayment> {
             children: [
               getDefaultHeader(context, "Checkout", () {
                 _requestPop();
-
-              }, (value) {
-              }, isShowSearch: false),
+              }, (value) {}, isShowSearch: false),
               getSpace(Constant.getPercentSize(screenHeight, 1.5)),
               ReviewSlider(
                   optionStyle: TextStyle(
@@ -72,8 +70,7 @@ class _CheckoutPayment extends State<CheckoutPayment> {
                   options: Constant.getOption()),
               Expanded(
                 child: Container(
-                  padding:
-                      EdgeInsets.only(left: leftMargin, right: leftMargin),
+                  padding: EdgeInsets.only(left: leftMargin, right: leftMargin),
                   child: ListView(
                     children: [
                       ListView.builder(
@@ -104,10 +101,8 @@ class _CheckoutPayment extends State<CheckoutPayment> {
                                 height: cellHeight,
                                 width: double.infinity,
                                 child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     getSvgImage(
                                         paymentModelList[index].image ?? "",
@@ -196,8 +191,8 @@ class _CheckoutPayment extends State<CheckoutPayment> {
                               height: edtHeight,
                               margin: EdgeInsets.only(top: appBarPadding),
                               padding: EdgeInsets.symmetric(
-                                  horizontal: Constant.getPercentSize(
-                                      screenWidth, 10)),
+                                  horizontal:
+                                      Constant.getPercentSize(screenWidth, 10)),
                               decoration: getButtonShapeDecoration(
                                   primaryColor.withOpacity(0.1)),
                               child: Row(
@@ -206,16 +201,15 @@ class _CheckoutPayment extends State<CheckoutPayment> {
                                       color: primaryColor,
                                       size: Constant.getPercentSize(
                                           edtHeight, 30)),
-                                  getHorSpace(Constant.getPercentSize(
-                                      screenWidth, 2)),
+                                  getHorSpace(
+                                      Constant.getPercentSize(screenWidth, 2)),
                                   getCustomText(
                                       "Add New Card",
                                       primaryColor,
                                       1,
                                       TextAlign.start,
                                       FontWeight.bold,
-                                      Constant.getPercentSize(
-                                          edtHeight, 28)),
+                                      Constant.getPercentSize(edtHeight, 28)),
                                 ],
                               ),
                             ),
@@ -268,8 +262,7 @@ class _CheckoutPayment extends State<CheckoutPayment> {
                   padding: EdgeInsets.symmetric(horizontal: margin),
                   child: ListView(
                     children: <Widget>[
-                      getSpace(Constant.getPercentSize(height,4)),
-
+                      getSpace(Constant.getPercentSize(height, 4)),
                       Center(
                         child: Container(
                           width: Constant.getWidthPercentSize(10),
@@ -277,7 +270,7 @@ class _CheckoutPayment extends State<CheckoutPayment> {
                           color: Colors.grey.shade500,
                         ),
                       ),
-                      getSpace(Constant.getPercentSize(height, 5  )),
+                      getSpace(Constant.getPercentSize(height, 5)),
                       Row(
                         children: [
                           Expanded(

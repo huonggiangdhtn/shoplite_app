@@ -1,7 +1,7 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/ui/items/all_product_list.dart';
+import 'package:shoplite/ui/items/all_product_list.dart';
 
 import '../../../constants/constant.dart';
 import '../../../constants/data_file.dart';
@@ -65,7 +65,8 @@ class _TabFavourite extends State<TabFavourite> {
                           ModelTrending modelPopular = popularList[index];
                           return InkWell(
                             onTap: () {
-                              Constant.sendToScreen(const ProductDetail(), context);
+                              Constant.sendToScreen(
+                                  const ProductDetail(), context);
                             },
                             child: Container(
                               height: popularHeight,

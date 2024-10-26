@@ -1,7 +1,6 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
+import 'package:shoplite/constants/constant.dart';
 
 import '../../constants/pref_data.dart';
 import '../../constants/size_config.dart';
@@ -72,8 +71,7 @@ class _VerifyScreen extends State<VerifyScreen> {
                     TextAlign.center,
                     FontWeight.w400,
                     getEdtTextSize()),
-                getSpace(appBarPadding/2),
-
+                getSpace(appBarPadding / 2),
                 PinCodeFields(
                   length: 4,
                   fieldBorderStyle: FieldBorderStyle.square,
@@ -83,7 +81,7 @@ class _VerifyScreen extends State<VerifyScreen> {
                   focusNode: focusNode,
                   textStyle: TextStyle(
                       color: Colors.black,
-                      fontSize: Constant.getPercentSize(screenWidth,5.5),
+                      fontSize: Constant.getPercentSize(screenWidth, 5.5),
                       fontFamily: Constant.fontsFamily,
                       fontWeight: FontWeight.w500),
                   margin: EdgeInsets.all(
@@ -98,18 +96,11 @@ class _VerifyScreen extends State<VerifyScreen> {
                   },
                 ),
                 getSpace(appBarPadding),
-                getButton(
-                    primaryColor,
-                    true,
-                    "Verify",
-                    Colors.white,
-                    () {
-                      PrefData.setLogIn(true);
+                getButton(primaryColor, true, "Verify", Colors.white, () {
+                  PrefData.setLogIn(true);
 
-                        Constant.sendToScreen(HomeScreen(), context);
-
-                    },
-                    FontWeight.w600,
+                  Constant.sendToScreen(HomeScreen(), context);
+                }, FontWeight.w600,
                     EdgeInsets.symmetric(vertical: appBarPadding))
               ],
             ),

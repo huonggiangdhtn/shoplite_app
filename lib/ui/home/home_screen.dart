@@ -1,15 +1,15 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/ui/home/tabscreen/tab_cart.dart';
-import 'package:shopping/ui/home/tabscreen/tab_favourite.dart';
-import 'package:shopping/ui/home/tabscreen/tab_home.dart';
-import 'package:shopping/ui/home/tabscreen/tab_profile.dart';
-// import 'package:shopping/ui/home/tabscreen/tab_favourite.dart';
-// import 'package:shopping/ui/home/tabscreen/tab_home.dart';
-// import 'package:shopping/ui/home/tabscreen/tab_profile.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/ui/home/tabscreen/tab_cart.dart';
+import 'package:shoplite/ui/home/tabscreen/tab_favourite.dart';
+import 'package:shoplite/ui/home/tabscreen/tab_home.dart';
+import 'package:shoplite/ui/home/tabscreen/tab_profile.dart';
+// import 'package:shoplite/ui/home/tabscreen/tab_favourite.dart';
+// import 'package:shoplite/ui/home/tabscreen/tab_home.dart';
+// import 'package:shoplite/ui/home/tabscreen/tab_profile.dart';
 
 import '../../constants/custom_animated_bottom_bar.dart';
 
@@ -17,7 +17,7 @@ import '../../constants/custom_animated_bottom_bar.dart';
 class HomeScreen extends StatefulWidget {
   int selectedTab;
 
-  HomeScreen({Key? key, this.selectedTab=0}) : super(key: key);
+  HomeScreen({Key? key, this.selectedTab = 0}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -39,10 +39,8 @@ class _HomeScreen extends State<HomeScreen> {
 
   @override
   void initState() {
-    currentPos=widget.selectedTab;
-    setState(() {
-
-    });
+    currentPos = widget.selectedTab;
+    setState(() {});
     super.initState();
   }
 

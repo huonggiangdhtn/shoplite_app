@@ -1,12 +1,11 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/widget_utils.dart';
-import 'package:shopping/ui/home/home_screen.dart';
-import 'package:shopping/ui/items/track_order_screen.dart';
-
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/widget_utils.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
+import 'package:shoplite/ui/items/track_order_screen.dart';
 
 import '../../constants/color_data.dart';
 
@@ -19,7 +18,8 @@ class ThankYouDialog extends StatefulWidget {
     return _ThankYouDialog();
   }
 
-  const ThankYouDialog(this.context, this.onChanged, {Key? key}) : super(key: key);
+  const ThankYouDialog(this.context, this.onChanged, {Key? key})
+      : super(key: key);
 }
 
 class _ThankYouDialog extends State<ThankYouDialog> {
@@ -74,138 +74,134 @@ class _ThankYouDialog extends State<ThankYouDialog> {
         children: <Widget>[
           Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  getSvgImage("thankyou.svg", imgSize),
-                  // Image.asset(
-                  //   Constant.assetImagePath + "Grourep.png",
-                  //   height: imgSize,
-                  //   width: imgSize,
-                  // ),
-                  SizedBox(
-                    height: Constant.getPercentSize(
-                      height,
-                      4,
-                    ),
-                  ),
-                  getCustomText(
-                    'Order Placed',
-                    fontBlack,
-                    1,
-                    TextAlign.center,
-                    FontWeight.bold,
-                    Constant.getPercentSize(width,7),
-                  ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              getSvgImage("thankyou.svg", imgSize),
+              // Image.asset(
+              //   Constant.assetImagePath + "Grourep.png",
+              //   height: imgSize,
+              //   width: imgSize,
+              // ),
+              SizedBox(
+                height: Constant.getPercentSize(
+                  height,
+                  4,
+                ),
+              ),
+              getCustomText(
+                'Order Placed',
+                fontBlack,
+                1,
+                TextAlign.center,
+                FontWeight.bold,
+                Constant.getPercentSize(width, 7),
+              ),
 
-                  SizedBox(
-                    height: Constant.getPercentSize(
-                      height,
-                      3,
-                    ),
-                  ),
+              SizedBox(
+                height: Constant.getPercentSize(
+                  height,
+                  3,
+                ),
+              ),
 
-                  getCustomText(
-                    'Your order has been successfully\n Completed!',
-                    fontBlack,2,
-                    TextAlign.center,
-                    FontWeight.w400,
-                    Constant.getPercentSize(width,5),
-                  ),
+              getCustomText(
+                'Your order has been successfully\n Completed!',
+                fontBlack,
+                2,
+                TextAlign.center,
+                FontWeight.w400,
+                Constant.getPercentSize(width, 5),
+              ),
 
-                  SizedBox(
-                    height: Constant.getPercentSize(
-                      height,
-                      6,
-                    ),
-                  ),
+              SizedBox(
+                height: Constant.getPercentSize(
+                  height,
+                  6,
+                ),
+              ),
 
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: Constant.getPercentSize(width, 5)),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: InkWell(
-                              onTap: () {
-
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => HomeScreen(),
-                                    ));
-                              },
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    right: Constant.getWidthPercentSize(3)),
-                                height: Constant.getHeightPercentSize(7),
-                                decoration: ShapeDecoration(
-                                  color: Colors.transparent,
-                                  shape: SmoothRectangleBorder(
-                                    side:
-                                        BorderSide(color: primaryColor, width: 2),
-                                    borderRadius: SmoothBorderRadius(
-                                      cornerRadius:
-                                          Constant.getHeightPercentSize(1.8),
-                                      cornerSmoothing: 0.8,
-                                    ),
-                                  ),
-                                ),
-                                child: Center(
-                                  child: getCustomText(
-                                      "Ok",
-                                      primaryColor,
-                                      1,
-                                      TextAlign.center,
-                                      FontWeight.w600,
-                                      Constant.getHeightPercentSize(2)),
-                                ),
-                              )),
-                        ),
-                        Expanded(
-                          child: InkWell(
-                            onTap: () {
-                              Constant.sendToScreen(const TrackOrderScreen(), context);
-                              // Navigator.pushReplacement(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //       builder: (context) => TrackOrderPage(),
-                              //     ));
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(
-                                  left: Constant.getWidthPercentSize(3)),
-                              height: Constant.getHeightPercentSize(7),
-                              decoration: ShapeDecoration(
-                                color: primaryColor,
-                                shape: SmoothRectangleBorder(
-                                  borderRadius: SmoothBorderRadius(
-                                    cornerRadius:
-                                    Constant.getHeightPercentSize(1.8),
-                                    cornerSmoothing: 0.8,
-                                  ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: Constant.getPercentSize(width, 5)),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomeScreen(),
+                                ));
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(
+                                right: Constant.getWidthPercentSize(3)),
+                            height: Constant.getHeightPercentSize(7),
+                            decoration: ShapeDecoration(
+                              color: Colors.transparent,
+                              shape: SmoothRectangleBorder(
+                                side: BorderSide(color: primaryColor, width: 2),
+                                borderRadius: SmoothBorderRadius(
+                                  cornerRadius:
+                                      Constant.getHeightPercentSize(1.8),
+                                  cornerSmoothing: 0.8,
                                 ),
                               ),
-                              child: Center(
-                                child:
-                                getCustomText(
-                                    "Track Order",
-                                    Colors.white,
-                                    1,
-                                    TextAlign.center,
-                                    FontWeight.w600,
-                                    Constant.getHeightPercentSize(2))
+                            ),
+                            child: Center(
+                              child: getCustomText(
+                                  "Ok",
+                                  primaryColor,
+                                  1,
+                                  TextAlign.center,
+                                  FontWeight.w600,
+                                  Constant.getHeightPercentSize(2)),
+                            ),
+                          )),
+                    ),
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          Constant.sendToScreen(
+                              const TrackOrderScreen(), context);
+                          // Navigator.pushReplacement(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //       builder: (context) => TrackOrderPage(),
+                          //     ));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(
+                              left: Constant.getWidthPercentSize(3)),
+                          height: Constant.getHeightPercentSize(7),
+                          decoration: ShapeDecoration(
+                            color: primaryColor,
+                            shape: SmoothRectangleBorder(
+                              borderRadius: SmoothBorderRadius(
+                                cornerRadius:
+                                    Constant.getHeightPercentSize(1.8),
+                                cornerSmoothing: 0.8,
                               ),
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                  )
-
-                ],
-              )),
-
+                          child: Center(
+                              child: getCustomText(
+                                  "Track Order",
+                                  Colors.white,
+                                  1,
+                                  TextAlign.center,
+                                  FontWeight.w600,
+                                  Constant.getHeightPercentSize(2))),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          )),
         ],
       ),
     );

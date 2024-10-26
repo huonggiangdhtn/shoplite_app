@@ -1,8 +1,8 @@
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/ui/profile/edit_profile_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/ui/profile/edit_profile_screen.dart';
 
 import '../../constants/widget_utils.dart';
 import '../../constants/color_data.dart';
@@ -113,8 +113,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                         //   top: appBarPadding,
                         // ),
                         padding: EdgeInsets.symmetric(
-                            horizontal: appBarPadding,
-                            vertical: appBarPadding),
+                            horizontal: appBarPadding, vertical: appBarPadding),
                         decoration: ShapeDecoration(
                             color: cardColor,
                             shape: SmoothRectangleBorder(
@@ -130,11 +129,10 @@ class _ProfileScreen extends State<ProfileScreen> {
                             getRowWidget(
                                 "First Name", "Jennie", "Document.svg"),
                             getSeparateDivider(),
-                            getRowWidget(
-                                "Last Name", "Winget", "Document.svg"),
+                            getRowWidget("Last Name", "Winget", "Document.svg"),
                             getSeparateDivider(),
-                            getRowWidget("Email", "jenniewinget@gmail.com",
-                                "email.svg"),
+                            getRowWidget(
+                                "Email", "jenniewinget@gmail.com", "email.svg"),
                             getSeparateDivider(),
                             getRowWidget("Phone Number", "+91 96356 85566",
                                 "Call_Calling.svg"),
@@ -151,8 +149,7 @@ class _ProfileScreen extends State<ProfileScreen> {
                   ),
                   flex: 1,
                 ),
-                getButton(primaryColor, true, "Edit Profile", Colors.white,
-                    () {
+                getButton(primaryColor, true, "Edit Profile", Colors.white, () {
                   Constant.sendToScreen(const EditProfileScreen(), context);
                 }, FontWeight.w700, EdgeInsets.all(appBarPadding))
               ],

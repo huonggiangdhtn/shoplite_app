@@ -3,19 +3,19 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/widget_utils.dart';
-import 'package:shopping/constants/color_data.dart';
-import 'package:shopping/models/model_banner.dart';
-import 'package:shopping/models/model_category.dart';
-import 'package:shopping/models/model_trending.dart';
-import 'package:shopping/ui/home/home_screen.dart';
-import 'package:shopping/ui/items/all_product_list.dart';
-import 'package:shopping/ui/items/category_list.dart';
-import 'package:shopping/ui/items/category_items_list.dart';
-import 'package:shopping/ui/search/search_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/widget_utils.dart';
+import 'package:shoplite/constants/color_data.dart';
+import 'package:shoplite/models/model_banner.dart';
+import 'package:shoplite/models/model_category.dart';
+import 'package:shoplite/models/model_trending.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
+import 'package:shoplite/ui/items/all_product_list.dart';
+import 'package:shoplite/ui/items/category_list.dart';
+import 'package:shoplite/ui/items/category_items_list.dart';
+import 'package:shoplite/ui/search/search_screen.dart';
 
 import '../../items/product_detail.dart';
 
@@ -343,7 +343,8 @@ class _TabHome extends State<TabHome> {
                           return InkWell(
                             onTap: () {
                               // Constant.sendToScreen(AllProductList(), context);
-                              Constant.sendToScreen(const ProductDetail(), context);
+                              Constant.sendToScreen(
+                                  const ProductDetail(), context);
                             },
                             child: Container(
                               height: double.infinity,

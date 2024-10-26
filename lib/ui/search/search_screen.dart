@@ -1,14 +1,13 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/size_config.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/size_config.dart';
 
-import 'package:shopping/ui/search/filter_screen.dart';
+import 'package:shoplite/ui/search/filter_screen.dart';
 
 import '../../constants/widget_utils.dart';
 import '../../constants/color_data.dart';
-
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -56,16 +55,14 @@ class _SearchScreen extends State<SearchScreen> {
   TextEditingController searchController = TextEditingController(text: "sho");
   ValueNotifier<bool> valChange = ValueNotifier(false);
 
-
   @override
   void initState() {
     super.initState();
     checkData();
   }
 
-  checkData()
-  {
-    String value=searchController.value.text;
+  checkData() {
+    String value = searchController.value.text;
     filteredList.clear();
     if (value.isNotEmpty) {
       for (var element in suggestionlist) {
@@ -78,6 +75,7 @@ class _SearchScreen extends State<SearchScreen> {
       valChange.value = !valChange.value;
     }
   }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -214,7 +212,8 @@ class _SearchScreen extends State<SearchScreen> {
                               child:
                                   getSvgImage("filter.svg", getEdtIconSize()),
                               onTap: () {
-                                Constant.sendToScreen(const FilterScreen(), context);
+                                Constant.sendToScreen(
+                                    const FilterScreen(), context);
                               },
                             )
                           ],

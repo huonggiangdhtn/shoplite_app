@@ -1,7 +1,7 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
+import 'package:shoplite/constants/constant.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'size_config.dart';
@@ -97,7 +97,6 @@ Widget getBackgroundWidget(Widget widget) {
             ],
           ),
         )
-
       ],
     ),
   );
@@ -133,9 +132,7 @@ Widget getLeadingIcon(BuildContext context, Function function) {
         // height: Constant.getPercentSize(toolbarHeight, 30),
         fit: BoxFit.cover,
         width: toolbarHeight,
-      )
-
-      );
+      ));
 }
 
 Widget getEmptyWidget(String image, String title, String description,
@@ -169,7 +166,6 @@ Widget getEmptyWidget(String image, String title, String description,
             ? InkWell(
                 onTap: () {
                   function();
-
                 },
                 child: Container(
                     margin: EdgeInsets.only(
@@ -178,7 +174,6 @@ Widget getEmptyWidget(String image, String title, String description,
                     height: height,
                     decoration: ShapeDecoration(
                       color: Colors.white,
-
                       shape: SmoothRectangleBorder(
                         side: BorderSide(color: primaryColor, width: 1.5),
                         borderRadius: SmoothBorderRadius(
@@ -193,7 +188,7 @@ Widget getEmptyWidget(String image, String title, String description,
                           primaryColor,
                           TextAlign.center,
                           FontWeight.w700,
-                          Constant.getPercentSize(width,9)),
+                          Constant.getPercentSize(width, 9)),
                     )),
               )
             : getSpace(0)
@@ -474,7 +469,9 @@ Widget getFavWidget(double height, bool isFav, EdgeInsetsGeometry margin) {
     decoration:
         const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
     child: Center(
-      child: getSvgImage((isFav)?"fav_fill.svg":"heart.svg", Constant.getPercentSize(size, 70),color: (isFav)?null:Colors.black54),
+      child: getSvgImage((isFav) ? "fav_fill.svg" : "heart.svg",
+          Constant.getPercentSize(size, 70),
+          color: (isFav) ? null : Colors.black54),
     ),
   );
 }
@@ -506,7 +503,7 @@ Widget getHorSpace(double verSpace) {
   );
 }
 
-ShapeDecoration getTextFieldDecoration({Color colorSet=Colors.grey}) {
+ShapeDecoration getTextFieldDecoration({Color colorSet = Colors.grey}) {
   return ShapeDecoration(
       shape: SmoothRectangleBorder(
           // side: BorderSide(
@@ -527,67 +524,65 @@ Widget getLoginTextField(
   bool isAutoFocus = false;
   return StatefulBuilder(
     builder: (context, setState) {
-
-    return Container(
-      width: double.infinity,
-      height: getEditHeight(),
-      margin: EdgeInsets.symmetric(
-          vertical: Constant.getPercentSize(screenHeight, 1.5)),
-      padding: EdgeInsets.symmetric(
-          horizontal: Constant.getPercentSize(screenWidth, 2)),
-      decoration: getTextFieldDecoration(colorSet:isAutoFocus ? primaryColor : Colors.grey,),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          getSvgImage(icon, edtIconSize),
-          // Image.asset(
-          //   Constant.assetImagePath + icon,
-          //   height: edtIconSize,
-          //   width: edtIconSize,
-          // ),
-          getHorSpace(Constant.getPercentSize(screenWidth, 1.5)),
-          Expanded(
-            child: Focus(
-              onFocusChange: (hasFocus) {
-                if (hasFocus) {
-                  setState(() {
-                    isAutoFocus = true;
-                    myFocusNode.canRequestFocus = true;
-                  });
-                } else {
-                  setState(() {
-                    isAutoFocus = false;
-                    myFocusNode.canRequestFocus = false;
-                  });
-                }
-              },
-              child: TextField(
-                controller: controller,
-                autofocus: false,
-                focusNode: myFocusNode,
-                style: TextStyle(
-                    fontSize: getEdtTextSize(),
-                    color: fontBlack,
-
-                    fontWeight: FontWeight.w400),
-                decoration: InputDecoration(
-                    isDense: true,
-                    contentPadding: EdgeInsets.zero,
-                    hintText: hint,
-                    border: InputBorder.none),
+      return Container(
+        width: double.infinity,
+        height: getEditHeight(),
+        margin: EdgeInsets.symmetric(
+            vertical: Constant.getPercentSize(screenHeight, 1.5)),
+        padding: EdgeInsets.symmetric(
+            horizontal: Constant.getPercentSize(screenWidth, 2)),
+        decoration: getTextFieldDecoration(
+          colorSet: isAutoFocus ? primaryColor : Colors.grey,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            getSvgImage(icon, edtIconSize),
+            // Image.asset(
+            //   Constant.assetImagePath + icon,
+            //   height: edtIconSize,
+            //   width: edtIconSize,
+            // ),
+            getHorSpace(Constant.getPercentSize(screenWidth, 1.5)),
+            Expanded(
+              child: Focus(
+                onFocusChange: (hasFocus) {
+                  if (hasFocus) {
+                    setState(() {
+                      isAutoFocus = true;
+                      myFocusNode.canRequestFocus = true;
+                    });
+                  } else {
+                    setState(() {
+                      isAutoFocus = false;
+                      myFocusNode.canRequestFocus = false;
+                    });
+                  }
+                },
+                child: TextField(
+                  controller: controller,
+                  autofocus: false,
+                  focusNode: myFocusNode,
+                  style: TextStyle(
+                      fontSize: getEdtTextSize(),
+                      color: fontBlack,
+                      fontWeight: FontWeight.w400),
+                  decoration: InputDecoration(
+                      isDense: true,
+                      contentPadding: EdgeInsets.zero,
+                      hintText: hint,
+                      border: InputBorder.none),
+                ),
               ),
-            ),
-            flex: 1,
-          )
-        ],
-      ),
-    );
+              flex: 1,
+            )
+          ],
+        ),
+      );
     },
-
   );
 }
-
 
 Widget getPassTextField(TextEditingController controller, String hint,
     String icon, bool showPass, Function function) {
@@ -598,65 +593,69 @@ Widget getPassTextField(TextEditingController controller, String hint,
   FocusNode myFocusNode = FocusNode();
   bool isAutoFocus = false;
 
-  return StatefulBuilder(builder: (context, setState) {
-    return Container(
-      width: double.infinity,
-      height: getEditHeight(),
-      margin: EdgeInsets.symmetric(
-          vertical: Constant.getPercentSize(screenHeight, 1.5)),
-      padding: EdgeInsets.symmetric(
-          horizontal: Constant.getPercentSize(screenWidth, 2)),
-      decoration: getTextFieldDecoration(colorSet:isAutoFocus ? primaryColor : Colors.grey,),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          getSvgImage(icon, edtIconSize),
-          getHorSpace(Constant.getPercentSize(screenWidth, 1.5)),
-          Expanded(
-            child: Focus(
-              onFocusChange: (hasFocus) {
-                if (hasFocus) {
-                  setState(() {
-                    isAutoFocus = true;
-                    myFocusNode.canRequestFocus = true;
-                  });
-                } else {
-                  setState(() {
-                    isAutoFocus = false;
-                    myFocusNode.canRequestFocus = false;
-                  });
-                }
-              },
-              child: TextField(
-                obscureText: (showPass) ? false : true,
-                controller: controller,
-                autofocus: false,
-                focusNode: myFocusNode,
-                style: TextStyle(
-                    fontSize: getEdtTextSize(),
-                    color: fontBlack,
-                    fontWeight: FontWeight.w400),
-                decoration: InputDecoration(
-                    isDense: true,
-                    contentPadding: EdgeInsets.zero,
-                    hintText: hint,
-                    border: InputBorder.none),
+  return StatefulBuilder(
+    builder: (context, setState) {
+      return Container(
+        width: double.infinity,
+        height: getEditHeight(),
+        margin: EdgeInsets.symmetric(
+            vertical: Constant.getPercentSize(screenHeight, 1.5)),
+        padding: EdgeInsets.symmetric(
+            horizontal: Constant.getPercentSize(screenWidth, 2)),
+        decoration: getTextFieldDecoration(
+          colorSet: isAutoFocus ? primaryColor : Colors.grey,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            getSvgImage(icon, edtIconSize),
+            getHorSpace(Constant.getPercentSize(screenWidth, 1.5)),
+            Expanded(
+              flex: 1,
+              child: Focus(
+                onFocusChange: (hasFocus) {
+                  if (hasFocus) {
+                    setState(() {
+                      isAutoFocus = true;
+                      myFocusNode.canRequestFocus = true;
+                    });
+                  } else {
+                    setState(() {
+                      isAutoFocus = false;
+                      myFocusNode.canRequestFocus = false;
+                    });
+                  }
+                },
+                child: TextField(
+                  obscureText: (showPass) ? false : true,
+                  controller: controller,
+                  autofocus: false,
+                  focusNode: myFocusNode,
+                  style: TextStyle(
+                      fontSize: getEdtTextSize(),
+                      color: fontBlack,
+                      fontWeight: FontWeight.w400),
+                  decoration: InputDecoration(
+                      isDense: true,
+                      contentPadding: EdgeInsets.zero,
+                      hintText: hint,
+                      border: InputBorder.none),
+                ),
               ),
             ),
-            flex: 1,
-          ),
-          InkWell(
-              onTap: () {
-                function();
-              },
-              child: getSvgImage("eye.svg", edtIconSize, color: Colors.grey))
-          // SvgPicture.asset(Constant.assetImagePath + "",
-          //     color: Colors.red, semanticsLabel: 'A red up arrow')
-        ],
-      ),
-    );
-  },);
+            InkWell(
+                onTap: () {
+                  function();
+                },
+                child: getSvgImage("eye.svg", edtIconSize, color: Colors.grey))
+            // SvgPicture.asset(Constant.assetImagePath + "",
+            //     color: Colors.red, semanticsLabel: 'A red up arrow')
+          ],
+        ),
+      );
+    },
+  );
 }
 
 Widget getSvgImage(String image, double size, {Color? color}) {

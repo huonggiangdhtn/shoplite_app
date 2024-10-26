@@ -1,9 +1,9 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/data_file.dart';
-import 'package:shopping/constants/size_config.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/data_file.dart';
+import 'package:shoplite/constants/size_config.dart';
 
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
@@ -20,8 +20,6 @@ class FilterScreen extends StatefulWidget {
 }
 
 class _FilterScreen extends State<FilterScreen> {
-
-
   List<String> sortList = ["Sort by"];
   List<String> productTypeList = ["Product Type"];
   List<String> genderList = ["Gender"];
@@ -46,14 +44,14 @@ class _FilterScreen extends State<FilterScreen> {
     double screenWidth = SizeConfig.safeBlockHorizontal! * 100;
     double appbarPadding = getAppBarPadding();
 
-    double circleSize = Constant.getPercentSize(screenHeight,6.5);
+    double circleSize = Constant.getPercentSize(screenHeight, 6.5);
 
     double toolbarHeight = Constant.getToolbarHeight(context);
     double size = Constant.getHeightPercentSize(6);
     double height = getEditHeight();
     double radius = Constant.getPercentSize(height, 20);
-    double fontSize = Constant.getPercentSize(height,30);
-    double circleColorSize = Constant.getPercentSize(screenHeight,4.8);
+    double fontSize = Constant.getPercentSize(height, 30);
+    double circleColorSize = Constant.getPercentSize(screenHeight, 4.8);
 
     Color dropdownColor = backgroundColor;
     TextStyle style = TextStyle(
@@ -166,7 +164,8 @@ class _FilterScreen extends State<FilterScreen> {
                                     itemHeight: null,
                                     isDense: true,
                                     underline: getSpace(0),
-                                    icon: getSvgImage("dropdown_icon.svg", size),
+                                    icon:
+                                        getSvgImage("dropdown_icon.svg", size),
                                     items: sortList
                                         .map((String dropDownStringItem) {
                                       return DropdownMenuItem<String>(
@@ -321,12 +320,12 @@ class _FilterScreen extends State<FilterScreen> {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: appbarPadding,
-                            horizontal: appbarPadding),
+                            vertical: appbarPadding, horizontal: appbarPadding),
                         child: SizedBox(
                           height: height,
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: Constant.getWidthPercentSize(2.5)),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: Constant.getWidthPercentSize(2.5)),
                             decoration: ShapeDecoration(
                               color: Colors.transparent,
                               shape: SmoothRectangleBorder(
@@ -370,7 +369,6 @@ class _FilterScreen extends State<FilterScreen> {
                                             Text(
                                               dropDownStringItem,
                                               style: style,
-
                                             )
                                           ],
                                         ),
@@ -466,7 +464,7 @@ class _FilterScreen extends State<FilterScreen> {
   Widget getTitles(String title) {
     double appbarHeight = getAppBarPadding();
     double height = getEditHeight();
-    double fontSize = Constant.getPercentSize(height,30);
+    double fontSize = Constant.getPercentSize(height, 30);
     return Padding(
       padding: EdgeInsets.only(
           left: appbarHeight,

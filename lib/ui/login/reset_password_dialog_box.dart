@@ -1,8 +1,8 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/constants/widget_utils.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/constants/widget_utils.dart';
 
 import '../../constants/color_data.dart';
 
@@ -34,8 +34,9 @@ class _ResetPasswordDialogBoxState extends State<ResetPasswordDialogBox> {
     return Stack(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(left: padding, right: padding, bottom: padding),
-          margin: const EdgeInsets.only(top:40),
+          padding:
+              EdgeInsets.only(left: padding, right: padding, bottom: padding),
+          margin: const EdgeInsets.only(top: 40),
           // margin: EdgeInsets.only(top: avatarRadius),
           child: Column(
             mainAxisSize: MainAxisSize.min,

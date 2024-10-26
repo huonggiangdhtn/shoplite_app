@@ -6,7 +6,7 @@ class PrefData {
 
   static String introAvailable = prefName + "isIntroAvailable";
   static String isLoggedIn = prefName + "isLoggedIn";
-
+  static String token = prefName + "token";
   static Future<SharedPreferences> getPrefInstance() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     return preferences;
@@ -32,5 +32,17 @@ class PrefData {
     SharedPreferences preferences = await getPrefInstance();
     bool isIntroAvailable = preferences.getBool(isLoggedIn) ?? false;
     return isIntroAvailable;
+  }
+
+  //dinh nghi luu tru token
+  static setToken(String mtoken) async {
+    SharedPreferences preferences = await getPrefInstance();
+    preferences.setString(token, mtoken);
+  }
+
+  static Future<String> getToken() async {
+    SharedPreferences preferences = await getPrefInstance();
+    String tokenvalue = preferences.getString(token) ?? '';
+    return tokenvalue;
   }
 }

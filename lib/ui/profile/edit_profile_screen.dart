@@ -1,9 +1,9 @@
 // ignore: file_names
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/constant.dart';
-import 'package:shopping/constants/size_config.dart';
-import 'package:shopping/ui/home/home_screen.dart';
+import 'package:shoplite/constants/constant.dart';
+import 'package:shoplite/constants/size_config.dart';
+import 'package:shoplite/ui/home/home_screen.dart';
 
 import '../../constants/widget_utils.dart';
 import '../../constants/color_data.dart';
@@ -24,7 +24,8 @@ class _EditProfileScreen extends State<EditProfileScreen> {
 
   TextEditingController fNameCont = TextEditingController(text: "Jennie");
   TextEditingController lNameCont = TextEditingController(text: "Winget");
-  TextEditingController emailCont = TextEditingController(text: "jenniewinget@gmail.com");
+  TextEditingController emailCont =
+      TextEditingController(text: "jenniewinget@gmail.com");
   TextEditingController conCont = TextEditingController(text: "+9196356 85566");
 
   @override
@@ -222,8 +223,7 @@ class _EditProfileScreen extends State<EditProfileScreen> {
                     child: SingleChildScrollView(
                       child: Container(
                         padding: EdgeInsets.symmetric(
-                            horizontal: appBarPadding,
-                            vertical: appBarPadding),
+                            horizontal: appBarPadding, vertical: appBarPadding),
                         decoration: ShapeDecoration(
                             color: cardColor,
                             shape: SmoothRectangleBorder(
@@ -252,10 +252,9 @@ class _EditProfileScreen extends State<EditProfileScreen> {
                   ),
                   flex: 1,
                 ),
-                getButton(primaryColor, true, "Save", Colors.white,
-                    () {
+                getButton(primaryColor, true, "Save", Colors.white, () {
                   Constant.sendToScreen(HomeScreen(), context);
-                    }, FontWeight.w700, EdgeInsets.all(appBarPadding))
+                }, FontWeight.w700, EdgeInsets.all(appBarPadding))
               ],
             ),
           ),

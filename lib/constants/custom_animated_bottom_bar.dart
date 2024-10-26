@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopping/constants/size_config.dart';
+import 'package:shoplite/constants/size_config.dart';
 import 'package:flutter_svg/svg.dart';
 import 'dart:math' as math;
 import 'constant.dart';
@@ -39,7 +39,8 @@ class CustomAnimatedBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bgColor = backgroundColor ?? Theme.of(context).scaffoldBackgroundColor;
+    final bgColor =
+        backgroundColor ?? Theme.of(context).scaffoldBackgroundColor;
 
     return Container(
       decoration: BoxDecoration(
